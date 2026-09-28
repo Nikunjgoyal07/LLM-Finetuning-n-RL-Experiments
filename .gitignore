@@ -1,0 +1,7 @@
+# Model weights - too large for GitHub (100MB limit), upload to Hugging Face instead
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+*.safetensors.index.json
+checkpoint-*/

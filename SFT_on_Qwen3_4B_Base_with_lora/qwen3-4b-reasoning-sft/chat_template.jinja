@@ -1,0 +1,4 @@
+{% if messages[0]['role'] == 'system' %}{{ messages[0]['content'] + eos_token }}{% set loop_messages = messages[1:] %}{% else %}{{ 'You are given a problem.
+Think about the problem and provide your working out.
+Place it between <think> and </think>.
+Then, provide your solution between <SOLUTION></SOLUTION>' + eos_token }}{% set loop_messages = messages %}{% endif %}{% for message in loop_messages %}{% if message['role'] == 'user' %}{{ message['content'] }}{% elif message['role'] == 'assistant' %}{{ message['content'] + eos_token }}{% endif %}{% endfor %}{% if add_generation_prompt %}{{ '<think>' }}{% endif %}
